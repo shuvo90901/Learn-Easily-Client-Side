@@ -1,19 +1,26 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { Image } from 'react-bootstrap';
 import { FaStar, FaStarHalf } from "react-icons/fa";
+import Pdf from "react-to-pdf";
+
+const ref = React.createRef();
+
 
 const CourseDetails = () => {
     const course = useLoaderData();
     const { id, name, img, title, rating, enrolled } = course;
     console.log(course)
     return (
-        <div className='bg-info rounded-lg p-3 text-center'>
+        <div ref={ref} className='my-5 bg-info rounded-lg p-3 text-center'>
             <div className='d-flex justify-content-center'>
-                <Image
-                    style={{ height: '35px' }}
-                    roundedCircle
-                    src={img}></Image>
+                <Pdf targetRef={ref} filename="code-example.pdf">
+                    {({ toPdf }) => <Image
+                        onClick={toPdf}
+                        style={{ height: '35px' }}
+                        roundedCircle
+                        src={img}></Image>}
+                </Pdf>
                 <h4>{name}</h4>
             </div>
             <div className=''>
@@ -30,7 +37,7 @@ const CourseDetails = () => {
                 </p>
                 <p>Enrolled : {enrolled}</p>
             </div>
-
+            <Link to={`/course/${id}/checkout`}> <button className="btn btn-primary">Get Premium Access</button></Link>
         </div>
     );
 };

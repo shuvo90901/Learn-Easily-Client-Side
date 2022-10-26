@@ -1,9 +1,11 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import Pdf from "react-to-pdf";
 
+import "./styles.css";
 const ref = React.createRef();
 
-function Home() {
+function Pdffile() {
     return (
         <div className="App">
             <Pdf targetRef={ref} filename="code-example.pdf">
@@ -17,5 +19,5 @@ function Home() {
     );
 }
 
-
-export default Home;
+const rootElement = document.getElementById("root");
+ReactDOM.render(<Pdffile />, rootElement);
