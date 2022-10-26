@@ -20,15 +20,16 @@ const Header = () => {
     console.log(user)
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-            <Container>
-                <Navbar.Brand className='text-danger fw-bold fs-3' href="#home">Learn Easily</Navbar.Brand>
+            <Container><Link style={{ textDecoration: 'none' }} to='/'>
+                <Navbar.Brand className='text-danger fw-bold fs-3'>Learn Easily</Navbar.Brand>
+            </Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
 
                     </Nav>
                     <Nav className="me-auto">
-                        <Link className='nav-topic'>Courses</Link>
+                        <Link className='nav-topic' to='/courses'>Courses</Link>
                         <Link className='nav-topic'>FAQ</Link>
                         <Link className='nav-topic pe-3'>Blog</Link>
                     </Nav>
@@ -59,7 +60,7 @@ const Header = () => {
                     </Nav>
                 </Navbar.Collapse>
             </Container>
-        </Navbar>
+        </Navbar >
     );
 };
 
