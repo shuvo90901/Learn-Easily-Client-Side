@@ -1,0 +1,18 @@
+.dark {
+    background-color: #333;
+    color: #fff;
+}
+
+
+.light {
+    background-color: #fff;
+    color: rgba(51, 51, 51, 0.6);
+}
+
+.btn-dark:hover {
+    color: rgba(0, 0, 255, 0.219);
+}
+
+.btn-light:hover {
+    color: rgba(0, 0, 255, 0.219);
+}

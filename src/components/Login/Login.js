@@ -1,3 +1,4 @@
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
@@ -7,7 +8,7 @@ import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
 
-    const { signIn } = useContext(AuthContext)
+    const { signIn, providerLogin } = useContext(AuthContext)
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -18,6 +19,27 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const user = result;
+                console.log(user)
+            })
+            .catch(error => console.error(error))
+    }
+    const googleProvider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => console.error(error))
+    }
+
+    const githubProvider = new GithubAuthProvider();
+
+    const handleGithubSignIn = () => {
+        providerLogin(githubProvider)
+            .then(result => {
+                const user = result.user;
                 console.log(user)
             })
             .catch(error => console.error(error))
@@ -36,6 +58,8 @@ const Login = () => {
             <Button variant="primary" type="submit">
                 Submit
             </Button>
+            <Button onClick={handleGoogleSignIn} variant="success">Google</Button>
+            <Button onClick={handleGithubSignIn} variant="success">Github</Button>
             <p>if you are new in this website? please <Link to='/register'>Register</Link> </p>
         </Form>
     );

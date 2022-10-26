@@ -8,6 +8,7 @@ import { FaExternalLinkAlt, FaUser } from "react-icons/fa";
 import { useContext } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { Image } from 'react-bootstrap';
+import ToggleDarkLight from '../ToggleDarkLight/ToggleDarkLight';
 
 const Header = () => {
     const { logOut, user } = useContext(AuthContext)
@@ -26,12 +27,17 @@ const Header = () => {
                     <Nav className="me-auto">
 
                     </Nav>
-                    <Nav className='align-items-center'>
+                    <Nav className="me-auto">
                         <Link className='nav-topic'>Courses</Link>
                         <Link className='nav-topic'>FAQ</Link>
                         <Link className='nav-topic pe-3'>Blog</Link>
+                    </Nav>
+                    <Nav className='align-items-center text-primary'>
+                        <ToggleDarkLight></ToggleDarkLight>
 
-                        {user?.displayName}
+                        <div className='ms-4'>
+                            {user?.displayName}
+                        </div>
                         <div title={user?.displayName}>
                             {
                                 user?.photoURL ?
@@ -45,13 +51,10 @@ const Header = () => {
                         </div>
                         {
                             user ?
-                                <FaExternalLinkAlt onClick={handleLogOut}></FaExternalLinkAlt>
+                                <FaExternalLinkAlt title='logOut' onClick={handleLogOut}></FaExternalLinkAlt>
                                 :
                                 <Link to='/login'>Log In</Link>
                         }
-
-
-
 
                     </Nav>
                 </Navbar.Collapse>
