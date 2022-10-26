@@ -3,12 +3,12 @@ import React from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
-    const { createUser, providerLogin } = useContext(AuthContext)
-
+    const { createUser, providerLogin, updateUserprofile } = useContext(AuthContext)
+    const navigate = useNavigate();
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -22,6 +22,9 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                form.reset();
+                handleUpdateProfile(name, photoURL)
+                navigate('/login')
             })
             .catch(error => console.error(error))
     }
@@ -45,6 +48,16 @@ const Register = () => {
                 const user = result.user;
                 console.log(user)
             })
+            .catch(error => console.error(error))
+    }
+
+    const handleUpdateProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserprofile(profile)
+            .then(() => { })
             .catch(error => console.error(error))
     }
 
