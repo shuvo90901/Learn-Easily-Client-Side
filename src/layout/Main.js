@@ -1,6 +1,5 @@
-import { Container } from 'postcss';
 import React from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
 import Header from '../components/Header/Header';
 import RightSideNav from '../components/RightSideNav/RightSideNav';
@@ -9,14 +8,16 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <Row>
-                <Col>
-                    <Outlet></Outlet>
-                </Col>
-                <Col>
-                    <RightSideNav></RightSideNav>
-                </Col>
-            </Row>
+            <Container>
+                <Row>
+                    <Col lg='8'>
+                        <Outlet></Outlet>
+                    </Col>
+                    <Col lg='4'>
+                        <RightSideNav></RightSideNav>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     );
 };
