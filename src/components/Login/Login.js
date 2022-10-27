@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
-import { FaGithub, FaGoogle, IconName } from "react-icons/fa";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
     const [error, setError] = useState('')
@@ -43,6 +43,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                navigate(from, { replace: true })
             })
             .catch(error => console.error(error))
     }
@@ -54,6 +55,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                navigate(from, { replace: true })
             })
             .catch(error => console.error(error))
     }

@@ -31,6 +31,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: 'course/:id/checkout',
+                loader: async ({ params }) => fetch(`https://learn-easily-server.vercel.app/course/${params.id}`),
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
             },
             {

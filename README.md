@@ -68,3 +68,19 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Learning Easily
+live site : (https://learn-easily-5e6e1.web.app/)
+
+in this course
+* Programs and applications development.
+* Artificial intelligence development.
+* Database development.
+* Development of drivers and hardware interface.
+* Internet and web pages development. 
+
+used in this website
+1.Low-level languages
+2.assembly language
+3.Machine language
+4.High-level languages
