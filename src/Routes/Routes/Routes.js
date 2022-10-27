@@ -22,11 +22,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses></Courses>,
-                loader: async () => fetch('http://localhost:5000/course')
+                loader: async () => fetch('https://learn-easily-server.vercel.app/course')
             },
             {
                 path: '/course/:id',
-                loader: async ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
+                loader: async ({ params }) => fetch(`https://learn-easily-server.vercel.app/course/${params.id}`),
                 element: <CourseDetails></CourseDetails>
             },
             {
