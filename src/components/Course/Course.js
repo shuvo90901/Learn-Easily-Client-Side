@@ -4,7 +4,7 @@ import { FaStar, FaStarHalf } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const Course = ({ course }) => {
-    const { id, name, img, title, rating, enrolled } = course;
+    const { id, name, img, rating, enrolled } = course;
     console.log(course)
     return (
         <div className='bg-info rounded-lg p-3 text-center'>
@@ -18,7 +18,6 @@ const Course = ({ course }) => {
             <div className=''>
                 <Image className='w-50 mx-auto' src={img}></Image>
             </div>
-            <p> {title}</p>
             <div className='d-flex justify-content-around text-success'>
                 <p className='d-flex align-items-center '>{rating}
                     <FaStar></FaStar>

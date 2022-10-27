@@ -9,6 +9,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { Image } from 'react-bootstrap';
 import ToggleDarkLight from '../ToggleDarkLight/ToggleDarkLight';
+import logo from '../../image/logo.png'
 
 const Header = () => {
     const { logOut, user } = useContext(AuthContext)
@@ -20,9 +21,22 @@ const Header = () => {
     console.log(user)
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-            <Container><Link style={{ textDecoration: 'none' }} to='/'>
-                <Navbar.Brand className='text-danger fw-bold fs-3'>Learn Easily</Navbar.Brand>
-            </Link>
+            <Container>
+                <Link
+                    className='d-flex align-items-center'
+                    style={{ textDecoration: 'none' }}
+                    to='/'>
+                    <Image
+                        style={{ height: '30px' }}
+                        roundedCircle
+                        src={logo}>
+
+                    </Image>
+                    <Navbar.Brand
+                        className='text-danger fw-bold fs-3 ms-2'>
+                        Learn Easily
+                    </Navbar.Brand>
+                </Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
@@ -36,10 +50,10 @@ const Header = () => {
                     <Nav className='align-items-center text-primary'>
                         <ToggleDarkLight></ToggleDarkLight>
 
-                        <div className='ms-4'>
+                        <div className='ms-4 text-success fw-bold'>
                             {user?.displayName}
                         </div>
-                        <div title={user?.displayName}>
+                        <div className='mx-4' title={user?.displayName}>
                             {
                                 user?.photoURL ?
                                     <Image
@@ -54,7 +68,12 @@ const Header = () => {
                             user ?
                                 <FaExternalLinkAlt title='logOut' onClick={handleLogOut}></FaExternalLinkAlt>
                                 :
-                                <Link to='/login'>Log In</Link>
+                                <Link
+                                    className='text-danger fw-bold'
+                                    to='/login'
+                                    style={{
+                                        textDecoration: 'none'
+                                    }}>Log In</Link>
                         }
 
                     </Nav>
