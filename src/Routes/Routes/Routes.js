@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Blog from "../../components/Blog/Blog";
 import CheckOut from "../../components/CheckOut/CheckOut";
 import CourseDetails from "../../components/CourseDetails/CourseDetails";
 import Courses from "../../components/Courses/Courses";
@@ -31,6 +32,10 @@ export const routes = createBrowserRouter([
             {
                 path: 'course/:id/checkout',
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             },
             {
                 path: '/login',

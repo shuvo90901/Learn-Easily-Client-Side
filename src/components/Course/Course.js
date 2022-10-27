@@ -7,7 +7,7 @@ const Course = ({ course }) => {
     const { id, name, img, rating, enrolled } = course;
     console.log(course)
     return (
-        <div className='bg-info rounded-lg p-3 text-center'>
+        <div className='bg-info rounded-lg py-3 text-center'>
             <div className='d-flex justify-content-center'>
                 <Image
                     style={{ height: '35px' }}

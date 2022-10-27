@@ -45,7 +45,8 @@ const Header = () => {
                     <Nav className="me-auto">
                         <Link className='nav-topic' to='/courses'>Courses</Link>
                         <Link className='nav-topic'>FAQ</Link>
-                        <Link className='nav-topic pe-3'>Blog</Link>
+                        <Link className='nav-topic pe-3'
+                            to='/blog'>Blog</Link>
                     </Nav>
                     <Nav className='align-items-center text-primary'>
                         <ToggleDarkLight></ToggleDarkLight>
