@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import { FaGithub, FaGoogle, IconName } from "react-icons/fa";
 
 const Login = () => {
     const [error, setError] = useState('')
@@ -57,22 +58,22 @@ const Login = () => {
             .catch(error => console.error(error))
     }
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form className='mt-5' onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Enter Your Email Address</Form.Label>
-                <Form.Control name='email' type="email" placeholder="Enter email" />
+                <Form.Control className='w-50' name='email' type="email" placeholder="Enter email" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Enter Your Password</Form.Label>
-                <Form.Control name='password' type="password" placeholder="Password" />
+                <Form.Control className='w-50' name='password' type="password" placeholder="Password" />
             </Form.Group>
             <p>{error}</p>
             <Button variant="primary" type="submit">
                 Submit
-            </Button>
-            <Button onClick={handleGoogleSignIn} variant="success">Google</Button>
-            <Button onClick={handleGithubSignIn} variant="success">Github</Button>
+            </Button><br />
+            <Button className='rounded-circle my-4 me-4' onClick={handleGoogleSignIn} variant="success"><FaGoogle></FaGoogle> </Button>
+            <Button className='rounded-circle my-4' onClick={handleGithubSignIn} variant="success"><FaGithub></FaGithub> </Button>
             <p>if you are new in this website? please <Link to='/register'>Register</Link> </p>
         </Form>
     );

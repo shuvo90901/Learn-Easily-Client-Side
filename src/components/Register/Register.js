@@ -3,6 +3,7 @@ import React from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
@@ -64,34 +65,31 @@ const Register = () => {
     }
 
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form className='mt-5' onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Enter Your Name</Form.Label>
-                <Form.Control name='name' type="text" placeholder="Enter Name" />
+                <Form.Control className='w-50' name='name' type="text" placeholder="Enter Name" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Enter Your Email address</Form.Label>
-                <Form.Control name='email' type="email" placeholder="Enter email" />
+                <Form.Control className='w-50' name='email' type="email" placeholder="Enter email" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Enter PhotoURL</Form.Label>
-                <Form.Control name='photoURL' type="text" placeholder="Enter photoURL" />
+                <Form.Control className='w-50' name='photoURL' type="text" placeholder="Enter photoURL" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Enter Your Password</Form.Label>
-                <Form.Control name='password' type="password" placeholder="Password" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Accept Terms and Conditions" />
+                <Form.Control className='w-50' name='password' type="password" placeholder="Password" />
             </Form.Group>
             <Button variant="primary" type="submit">
                 Submit
-            </Button>
-            <Button onClick={handleGoogleSignIn} variant="success">Google</Button>
-            <Button onClick={handleGithubSignIn} variant="success">Github</Button>
+            </Button><br />
+            <Button className='my-4 me-4 rounded-circle' onClick={handleGoogleSignIn} variant="success"><FaGoogle></FaGoogle> </Button>
+            <Button className='my-4 rounded-circle' onClick={handleGithubSignIn} variant="success"><FaGithub></FaGithub> </Button>
             <p>you have an account? Please <Link to='/login'>Login</Link> </p>
-        </Form>
+        </Form >
     );
 };
 
