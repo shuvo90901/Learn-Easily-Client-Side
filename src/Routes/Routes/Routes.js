@@ -5,6 +5,7 @@ import CourseDetails from "../../components/CourseDetails/CourseDetails";
 import Courses from "../../components/Courses/Courses";
 import Home from "../../components/Home/Home";
 import Login from "../../components/Login/Login";
+import Profile from "../../components/Profile/Profile";
 import Register from "../../components/Register/Register";
 import Main from "../../layout/Main";
 import NotFoundRoute from "../NotFoundRoute/NotFoundRoute";
@@ -47,9 +48,14 @@ export const routes = createBrowserRouter([
                 element: <Register></Register>
             },
             {
+                path: '/profile',
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>
+            },
+            {
                 path: '*',
                 element: <NotFoundRoute></NotFoundRoute>
             }
+
         ]
     }
 ])

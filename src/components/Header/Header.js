@@ -57,11 +57,13 @@ const Header = () => {
                         <div className='mx-4' title={user?.displayName}>
                             {
                                 user?.photoURL ?
-                                    <Image
-                                        style={{ height: '35px' }}
-                                        roundedCircle
-                                        src={user?.photoURL}
-                                    ></Image>
+                                    <Link to='/profile'>
+                                        <Image
+                                            style={{ height: '35px' }}
+                                            roundedCircle
+                                            src={user?.photoURL}
+                                        ></Image>
+                                    </Link>
                                     : <FaUser></FaUser>
                             }
                         </div>
